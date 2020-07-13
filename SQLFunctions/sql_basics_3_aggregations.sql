@@ -26,3 +26,27 @@ GROUP BY ProductID
 -- However, you can use 'HAVING' Clause to filter the resultant data
 -- We will see how we can use aggregation function on a subset of data rather than the entire table in upcoming sessions
 
+-- AGGREGATION FUNCTIONS IN SQL INCLUDE -
+-- COUNT() - returns the number of items found in a group
+-- SUM() - returns the sum of all the values
+-- AVG() - returns the average of the values in a group ignoring NULL values
+-- MIN() - returns the minimum value in the expression
+-- MAX() - returns the maximum value in the expression
+-- STDEV() / VAR() - returns the statistical standard deviation/Variance of all values
+
+-- LET US CALCULATE ALL THE AGGREGATIONS AGAINST DISTINCT PRODUCTS AS FOLLOWS
+
+SELECT  ProductID, COUNT(*), SUM(LineTotal), AVG(LineTotal), MIN(LineTotal), MAX(LineTotal), STDEV(LineTotal), VAR(LineTotal)
+FROM    SalesLT.SalesOrderDetail
+GROUP BY ProductID
+
+-- Except for the Count Function we have to specify a column name of type Numeric to compute aggregations
+
+-- Let us say we are asked to make the aggregations against each customer and Products combinations
+-- we can do it by adding the Customer Column in the Select as well as Group by clause as follows
+
+SELECT  Customer,ProductID, COUNT(*), SUM(LineTotal), AVG(LineTotal), MIN(LineTotal), MAX(LineTotal), STDEV(LineTotal), VAR(LineTotal)
+FROM    SalesLT.SalesOrderDetail
+GROUP BY Customer,ProductID
+
+-- Its is essential to include all non aggregated columns in the SELECT CLAUSE to be included in GROUP BY Clause
