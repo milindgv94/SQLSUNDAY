@@ -10,6 +10,10 @@ SELECT	SalesOrderID, SalesOrderDetailID, OrderQty, ProductID, UnitPrice, UnitPri
 FROM	SalesLT.SalesOrderDetail
 
 -- ALIASING TABLES SELECTED --
+-- aliasing refers to give a nickname to a particular database object which makes it easy to call
+-- in the below example we have specifed alias 't1' to Table 'SalesLT.SalesOrderDetail'
+-- it is a good practise to mention the tablename.columnname when making a select statement
+-- hence we have explicitly used t1.columnname to make a selection
 
 SELECT	t1.SalesOrderID, 
 		t1.SalesOrderDetailID, 
@@ -21,6 +25,9 @@ SELECT	t1.SalesOrderID,
 FROM	SalesLT.SalesOrderDetail t1
 
 -- SORTING DATA --
+-- 'Order by' Clause in SQL is used to sort data based on certain column
+-- we can sort the columns either ascending (asc) or descending (desc), if nothing is specified it is sorted in ascending order by default
+-- Note that Order by clause can slow down your query results, hence it is not recommended to use this unless its is of atmost importance
 
 SELECT	t1.SalesOrderID, 
 		t1.SalesOrderDetailID, 
@@ -34,6 +41,7 @@ ORDER BY SalesOrderID desc
 
 -- TABLE JOINS --
 -- INNER JOIN --
+-- We will understand SQL Joins in more details in upcoming sessions
 
 SELECT	t1.SalesOrderID, 
 		t1.SalesOrderDetailID, 
@@ -59,6 +67,8 @@ INNER JOIN SalesLT.SalesOrderHeader t2
 ON		t1.SalesOrderID = t2.SalesOrderID
 
 -- RENAMING OUTPUT COLUMN NAMES / COMMENTING --
+-- Commenting any line/porting of query results in not executing of that line/portion
+-- comments can be made by inserting '--', all text after '--' will be commented and not executed for the given line
 
 SELECT	--t1.SalesOrderID, 
 --		t1.SalesOrderDetailID, 
