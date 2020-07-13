@@ -1,8 +1,10 @@
 -- SIMPLE SELECT ALL STATEMENT --
+-- '*' in SQL represents ALL COLUMNS, Hence in the below query we are selecting all Columns from Table SalesOrderDetail
 
 SELECT * FROM SalesLT.SalesOrderDetail
 
 -- SELECT SPECIFIC COLUMNS --
+-- If we do not use '*' and need to specify columns manually, we can do it by naming them individually
 
 SELECT	SalesOrderID, SalesOrderDetailID, OrderQty, ProductID, UnitPrice, UnitPriceDiscount, LineTotal
 FROM	SalesLT.SalesOrderDetail
